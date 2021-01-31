@@ -123,7 +123,7 @@ var [respMsgLogin,setResponseLogin]=useState("*");
     </Nav>
     <Form inline>
     <Button variant="primary" style={{backgroundColor:"#6C63FF"}} onClick={handleShow}>SignUp</Button>&nbsp;&nbsp;
-<Button variant="primary" style={{backgroundColor:"#6C63FF"}} onClick={handleShowLogin}>Login</Button>
+<Button variant="primary" style={{backgroundColor:"#6C63FF"}} onClick={handleShowLogin}>Loginn</Button>
     </Form>
     
   </Navbar.Collapse>
