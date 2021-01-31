@@ -1,0 +1,22 @@
+.outer
+{
+    border: 2px #6C63FF solid;
+    
+    width: 250px;
+    height: 270px;
+    padding: 20px;
+   float: left;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 10px;
+   
+    
+}
+.outerform
+{
+    margin: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px #6C63FF solid;
+    border-radius: 5%;
+}
