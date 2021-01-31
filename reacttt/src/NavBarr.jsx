@@ -96,7 +96,7 @@ var doUpdateLogin = (event) => {
   async function doLogin(uid)
 {
   
-var url="api/react/login";
+var url="http://localhost:8000/react/login";
 var response=await axios.post(url,userObjLogin);
 if(response.data.length==0)
 {
