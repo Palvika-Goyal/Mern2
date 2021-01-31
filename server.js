@@ -1,28 +1,19 @@
+var mongoose=require("mongoose");
 
 const express=require("express");
+var path=require("path");
+
 var bodyParser=require("body-parser");
 var cors=require("cors");
-var mongoose=require("mongoose");
-var path=require("path");
+var PORT =process.env.PORT|| 8000;
 var app=express();
-
-
-
+app.use(cors());
+app.use(bodyParser.json());
 //=----------------------------------
 
 app.use(express.static("public"));
 
-app.use(bodyParser.json());
-app.use(cors());
 
-
-app.use(express.urlencoded({
-    extended: true
-  }));
-
-  var PORT =process.env.PORT|| 8000;
-  var fileUpload=require("express-fileupload");
-  app.use(fileUpload());
 
 const db=require("./config/dbconfig");
 var dbConfig=db.dburl;
@@ -39,7 +30,18 @@ app.use("/profile",profileRouter);
 var medicineRouter=require("./routers/medicine-router");
 app.use("/medicine",medicineRouter);
 
-app.use(express.static(path.join(__dirname,"reacttt")));
+
+app.use(express.urlencoded({
+    extended: true
+  }));
+  app.use(bodyparser.urlencoded({
+    extended: true
+  }));
+  app.use(express.static(path.join(__dirname,"reacttt")));
+
+  var fileUpload=require("express-fileupload");
+  app.use(fileUpload());
+
 if(process.env.NODE_ENV==='production')
 {
     app.use(express.static(path.join(__dirname,"reacttt","build")));
