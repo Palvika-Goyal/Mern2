@@ -34,9 +34,7 @@ app.use("/medicine",medicineRouter);
 app.use(express.urlencoded({
     extended: true
   }));
-  app.use(bodyparser.urlencoded({
-    extended: true
-  }));
+  
   app.use(express.static(path.join(__dirname,"reacttt")));
 
   var fileUpload=require("express-fileupload");
@@ -53,6 +51,4 @@ app.listen(PORT,()=>{
     console.log("Listeningg...");
 })
 
-
-//app.use(express.urlencoded({ extended:false }));
 
