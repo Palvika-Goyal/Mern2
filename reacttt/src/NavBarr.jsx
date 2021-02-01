@@ -104,8 +104,11 @@ if(response.data.length==0)
   setResponseLogin("Invalid Uid or Password..");
   return
 }
+else
+{
 setResponseLogin("Login Successful...");
 window.location.href="/userDashboard/"+uid;
+}
 }
 var [respMsgLogin,setResponseLogin]=useState("*");
 

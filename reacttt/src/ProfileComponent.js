@@ -48,7 +48,7 @@ doFetch();
 
   //=--------------------=---------Save with Pic Uploading=------------------------------
   async function doSavePost() {    
-      var url = "http://localhost:3003/profile/save-post/"+uid;
+      var url = "api/profile/save-post/"+uid;
       var formData=new FormData();
       for(var x in profileObj)
       {
@@ -76,7 +76,7 @@ async function doUpdatePost()
 //-===============================Fetch Details=----------------------------------------------
 async function doFetch()
   {
-    var url="http://localhost:3003/profile/fetch";
+    var url="api/profile/fetch";
     var response=await axios.post(url,profileObj);
     if(response.data.length==0)
     {
