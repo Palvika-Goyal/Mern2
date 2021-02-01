@@ -62,7 +62,7 @@ var [msg,setmsg]=useState("*");
           if(errObj.uid=="Fine" && errObj.pwd=="Fine"&& errObj.mobile=="Fine")
           {
             setmsg("Signup Successful..");
-            var url = "http://localhost:8000/react/save-post";
+            var url = "api/react/save-post";
             var response = await axios.post(url, userObj);
             //alert(JSON.stringify(response.data));
            setResponse(response.data.msg);
@@ -97,7 +97,7 @@ var doUpdateLogin = (event) => {
 {
   
   
-var url="http://localhost:8000/react/login";
+var url="api/react/login";
 var response=await axios.post(url,userObjLogin);
 if(response.data.length==0)
 {

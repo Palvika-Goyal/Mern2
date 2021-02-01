@@ -24,11 +24,11 @@ mongoose.connect(dbConfig).then(()=>{
 })
 
 var reactRouter=require("./routers/react-router");
-app.use("/react",reactRouter);
+app.use("/api/react",reactRouter);
 var profileRouter=require("./routers/profile-router");
-app.use("/profile",profileRouter);
+app.use("/api/profile",profileRouter);
 var medicineRouter=require("./routers/medicine-router");
-app.use("/medicine",medicineRouter);
+app.use("/api/medicine",medicineRouter);
 
 
 app.use(express.urlencoded({
