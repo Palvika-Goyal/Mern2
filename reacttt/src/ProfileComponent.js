@@ -62,7 +62,7 @@ doFetch();
 //=--------------------------------------Update with Pic=------------------------------------
 async function doUpdatePost()
 {
-  var url="http://localhost:3003/profile/update";
+  var url="api/profile/update";
   var formData=new FormData();
   for(var x in profileObj)
   {

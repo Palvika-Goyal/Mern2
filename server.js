@@ -26,9 +26,9 @@ mongoose.connect(dbConfig).then(()=>{
 var reactRouter=require("./routers/react-router");
 app.use("/api/react",reactRouter);
 var profileRouter=require("./routers/profile-router");
-app.use("/api/profile",profileRouter);
+app.use("/profile",profileRouter);
 var medicineRouter=require("./routers/medicine-router");
-app.use("/api/medicine",medicineRouter);
+app.use("/medicine",medicineRouter);
 
 
 app.use(express.urlencoded({
