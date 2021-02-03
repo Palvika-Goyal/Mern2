@@ -31,7 +31,7 @@ function Login() {
     
       async function doLogin()
   {
-    var url="http://localhost:8000/react/login";
+    var url="api/react/login";
     var response=await axios.post(url,userObjLogin);
     if(response.data.length==0)
     {

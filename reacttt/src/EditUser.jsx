@@ -33,7 +33,7 @@ var [userObj, setUserObj] = useState({
   //-======================================Search Function-=-=----------------------------=--=-=-----==
   async function searchData()
   {
-    var url="http://localhost:8000/react/fetch-one/"+uid;
+    var url="api/react/fetch-one/"+uid;
     const response=await axios.get(url);
     setUserObj(response.data[0]);
     
@@ -44,7 +44,7 @@ var [userObj, setUserObj] = useState({
   //-=-=-=-======-=-=-=-=-==-=-=-=-=-=-=-=-=-Update Function=-=-=-=-=-=-=-=----------=-=-=-=-=
   async function doUpdatePost()
   {
-    var url="http://localhost:8000/react/update";
+    var url="api/react/update";
     var response=await axios.post(url,userObj);
     await alert(JSON.stringify(response.data));
   }

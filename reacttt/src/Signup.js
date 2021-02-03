@@ -96,7 +96,7 @@ var[fileObj,setFileObj]=useState("pics/fb.png")
           if(errObj.uid=="Fine" && errObj.pwd=="Fine"&& errObj.mobile=="Fine")
           {
             setmsg("Signup Successful..");
-            var url = "http://localhost:8000/react/save-post";
+            var url = "api/react/save-post";
             var formData=new FormData();
             for(var x in userObj)
             {
@@ -115,14 +115,14 @@ var[fileObj,setFileObj]=useState("pics/fb.png")
   {
     // window.location.assign("http://www.w3schools.com");
 
-   var url="http://localhost:8000/react/delete";
+   var url="api/react/delete";
    var response=await axios.post(url,userObj);
    await alert(JSON.stringify(response.data));
   }
   
   async function doUpdatee()
   {
-    var url="http://localhost:8000/react/update";
+    var url="api/react/update";
     var response=await axios.post(url,userObj);
     await alert(JSON.stringify(response.data));
   }

@@ -22,7 +22,7 @@ function AvailMedicine() {
     var[fileObj,setFileObj]=useState("/pics/fb.png");
 //=--------------------------On useEffect Getting City of uid from profile=-------------------==--
   useEffect(async() => {
-   var url="http://localhost:8000/profile/fetch";
+   var url="api/profile/fetch";
     var response=await axios.post(url,mediObj);
     if(response.data.length==0)
     {
@@ -53,7 +53,7 @@ function AvailMedicine() {
 
   //=---------------------------------------Save Post With Pic=--------------------------------------------
   async function doSavePost() {      
-      var url = "http://localhost:8000/medicine/save-post/"+uid;
+      var url = "api/medicine/save-post/"+uid;
       var formData=new FormData();
       for(var x in mediObj)
       {
