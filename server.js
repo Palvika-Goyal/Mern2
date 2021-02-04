@@ -12,7 +12,9 @@ app.use(bodyParser.json());
 //=----------------------------------
 
 app.use(express.static("public"));
-
+app.use(express.urlencoded({
+    extended: true
+  }));
 
 
 const db=require("./config/dbconfig");
@@ -22,7 +24,13 @@ mongoose.connect(dbConfig).then(()=>{
 }).catch((err)=>{
     console.log(err);
 })
-
+if(process.env.NODE_ENV==='production')
+{
+    app.use(express.static(path.join(__dirname,"reacttt","build")));
+    app.get("*",(req,resp)=>{
+        resp.sendFile(path.join(__dirname,"reacttt","build","index.html"));
+    })
+}
 var reactRouter=require("./routers/react-router");
 app.use("/api/react",reactRouter);
 var profileRouter=require("./routers/profile-router");
@@ -31,22 +39,14 @@ var medicineRouter=require("./routers/medicine-router");
 app.use("/api/medicine",medicineRouter);
 
 
-app.use(express.urlencoded({
-    extended: true
-  }));
+
   
   app.use(express.static(path.join(__dirname,"reacttt")));
 
   var fileUpload=require("express-fileupload");
   app.use(fileUpload());
 
-if(process.env.NODE_ENV==='production')
-{
-    app.use(express.static(path.join(__dirname,"reacttt","build")));
-    app.get("*",(req,resp)=>{
-        resp.sendFile(path.join(__dirname,"reacttt","build","index.html"));
-    })
-}
+
 app.listen(PORT,()=>{
     console.log("Listeningg...");
 })

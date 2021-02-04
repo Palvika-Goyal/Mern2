@@ -48,13 +48,13 @@ doFetch();
 
   //=--------------------=---------Save with Pic Uploading=------------------------------
   async function doSavePost() {    
-      var url = "api/profile/save-post/"+uid;
+      var url = "/api/profile/save-post/"+uid;
       var formData=new FormData();
       for(var x in profileObj)
       {
         formData.append(x,profileObj[x]);
       }
-      var response = await axios.post(url, formData);
+      var response = await axios.post(url, formData, {headers:{ 'Content-Type':'multipart/form-data'}});
       // alert(JSON.stringify(response.data));
      setResponse(response.data.msg); 
 }
@@ -62,13 +62,13 @@ doFetch();
 //=--------------------------------------Update with Pic=------------------------------------
 async function doUpdatePost()
 {
-  var url="api/profile/update";
+  var url="/api/profile/update";
   var formData=new FormData();
   for(var x in profileObj)
   {
     formData.append(x,profileObj[x]);
   }
-  var response = await axios.post(url, formData);
+  var response = await axios.post(url, formData , {headers:{ 'Content-Type':'multipart/form-data'}});
   // alert(JSON.stringify(response.data));
  setResponse(response.data.msg);
 }
@@ -76,7 +76,7 @@ async function doUpdatePost()
 //-===============================Fetch Details=----------------------------------------------
 async function doFetch()
   {
-    var url="api/profile/fetch";
+    var url="/api/profile/fetch";
     var response=await axios.post(url,profileObj);
     if(response.data.length==0)
     {

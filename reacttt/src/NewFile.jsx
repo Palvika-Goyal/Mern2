@@ -11,7 +11,7 @@ import FrontPage from "./FrontPage";
 import Cards from "./Cards";
 import EditUser from "./EditUser";
 import UserDashBoard from "./UserDashBoard";
-import ProfileComponent from './ProfileComponent';
+import ProfileComponent from "./ProfileComponent";
 import AvailMedicine from './AvailMedicine';
 import MedicineManager from './MedicineManager';
 import MedicineFinder from './MedicineFinder';
