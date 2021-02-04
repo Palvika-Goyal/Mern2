@@ -9,7 +9,7 @@ function getUserModel()
         dos: {type:Date,default:Date.now }
 });
 
-var userModel=mongoose.model("users",UserSchemaObj);
+var userModel=mongoose.model("users2",UserSchemaObj);
 
 return userModel;
 }

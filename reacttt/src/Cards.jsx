@@ -15,7 +15,7 @@ function EditData(uid)
  
 }
  useEffect(async() => {
-  var url = "http://localhost:3003/react/fetchall";
+  var url = "api/react/fetchall";
   var response = await axios.post(url);
   fillJsonArray(response.data);
   setFileObj(response.data.myfile)

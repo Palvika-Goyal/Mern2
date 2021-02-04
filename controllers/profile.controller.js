@@ -28,12 +28,23 @@ async function doSave(req,resp){
             return;
         }
         resp.json(result);
-       
         console.log(result);
     });
 
 }
 
+
+//-=================================
+async function doFetchDetails(req,resp){
+    profileModel.find({uid:req.body.uid})
+    .then((result)=>{
+        console.log(result);
+        resp.json(result);
+    })
+    .catch((err)=>{
+        resp.json({errmsg:err});
+    })
+}
 
 //-===================
 async function doUpdate(req,resp){
@@ -42,7 +53,7 @@ async function doUpdate(req,resp){
     req.body.apic="aluu.JPG";
     else{
         req.body.apic=req.files.myfile.name;
-        var fullPath=path.join(process.cwd(),"reacttt","uploads2",req.body.apic);
+        var fullPath=path.join(process.cwd(),"uploads2",req.body.apic);
         await req.files.myfile.mv(fullPath,(err)=>{
             if(err)
             {
@@ -69,20 +80,6 @@ async function doFetch(req,resp){
     profileModel.find({uid:req.body.uid})
     .then((result)=>{
         console.log(result.length+" Records Found");
-        console.log(result);
-        resp.json(result);
-    })
-    .catch((err)=>{
-        resp.json({errmsg:err});
-    })
-}
-
-
-
-//=----------------
-async function doFetchDetails(req,resp){
-    profileModel.find({uid:req.body.uid})
-    .then((result)=>{
         console.log(result);
         resp.json(result);
     })

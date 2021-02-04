@@ -128,7 +128,7 @@ var[fileObj,setFileObj]=useState("pics/fb.png")
   }
   async function doFetch()
   {
-    var url="http://localhost:3003/react/fetch";
+    var url="api/react/fetch";
     var response=await axios.post(url,userObj);
     if(response.data.length==0)
     {

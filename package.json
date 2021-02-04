@@ -1,11 +1,12 @@
 {
-  "name": "NewProjectt",
+  "name": "NewProjectt2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  
   "scripts": {
-    "start":"node server.js",
-    "heroku-postbuild": "cd reacttt && npm install && npm run build" 
+     "start": "node server.js",
+     "heroku-postbuild": "cd reacttt && npm install && npm run build"
   },
   "keywords": [],
   "author": "",

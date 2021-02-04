@@ -44,7 +44,7 @@ function MedicineFinder() {
 
 //=-------------------=-------USE EFFECT -FETCH ALL DISTINCT CITIES=-------------
 useEffect(async() => {
-    var url="api/medicine/fetch-all";
+    var url="/api/medicine/fetch-all";
     var response=await axios.post(url);
     filljsonAryCity(response.data);
 }, [])
@@ -53,7 +53,7 @@ useEffect(async() => {
 async function doFill(e)
 {    
     doUpdate(e);
-    var url="api/medicine/fetch-medicine/"+e.target.value;
+    var url="/api/medicine/fetch-medicine/"+e.target.value;
     var response=await axios.post(url);
     fillMedicine(response.data);
    // alert(JSON.stringify(response.data));
@@ -62,7 +62,7 @@ async function doFill(e)
 //=----------------------------FETCH ALL DETAILS AND SHOW IN CARD-==========================
 async function showCard(finder)
 {
-    var url="api/medicine/fetch-provider/"+finder.cityy+"/"+finder.medicine;
+    var url="/api/medicine/fetch-provider/"+finder.cityy+"/"+finder.medicine;
     var response=await axios.post(url);
      fillProviderObj(response.data);
     // alert(JSON.stringify(response.data));
@@ -72,7 +72,7 @@ async function showCard(finder)
 async function doFetchProviderDetails(obj){
     // alert(JSON.stringify(obj));
     handleShow();
-    var url="api/profile/fetch-details";
+    var url="/api/profile/fetch-details";
     var response=await axios.post(url,obj);
     // alert(JSON.stringify(response.data));
     
@@ -150,8 +150,8 @@ Medicine:
          Contact No.:{detailss.mobile}<br></br>
          Address:{detailss.addresss}<br></br>
          City:{detailss.city}<br></br>
-         State:{detailss.zip}<br></br>
-         Zip:{detailss.statee}<br></br></center>
+         Zip:{detailss.zip}<br></br>
+         State:{detailss.statee}<br></br></center>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

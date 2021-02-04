@@ -13,7 +13,7 @@ function getProfileModel()
         dos: {type:Date,default:Date.now }
 });
 
-var profileModel=mongoose.model("profilee",ProfileSchemaObj);
+var profileModel=mongoose.model("profiles",ProfileSchemaObj);
 
 return profileModel;
 }

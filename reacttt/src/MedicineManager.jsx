@@ -13,7 +13,7 @@ function MedicineManager() {
     async function doFetchMedicine(uid)
     {      
         
-        var url="api/medicine/fetch-all/"+uid;
+        var url="/api/medicine/fetch-all/"+uid;
         var response=await axios.post(url);
         filljsonAry(response.data);
         // alert(response.data.length);        
@@ -22,7 +22,7 @@ function MedicineManager() {
 //=---------------------------------------------=-Delete Medicine=---------------------------------
     async function deleteMedicine(obj)
     {
-        var url="api/medicine/delete";
+        var url="/api/medicine/delete";
         const response=await axios.post(url,obj);
         // alert(JSON.stringify(response.data));
         doFetchMedicine(uid);

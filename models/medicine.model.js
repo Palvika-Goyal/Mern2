@@ -13,7 +13,7 @@ function getMedicineModel()
         dos: {type:Date,default:Date.now }
 });
 
-var medicineModel=mongoose.model("medicine",MedicineSchemaObj);
+var medicineModel=mongoose.model("medicines2",MedicineSchemaObj);
 
 return medicineModel;
 }

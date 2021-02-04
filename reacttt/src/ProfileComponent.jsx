@@ -40,9 +40,9 @@ function ProfileComponent() {
     setprofileObj({...profileObj,["myfile"]:event.target.files[0]});
     setFileObj(URL.createObjectURL(event.target.files[0]))
   }
-useEffect(() => {
-doFetch();
-}, [])
+// useEffect(() => {
+// doFetch();
+// }, [])
 
   var [respMsg,setResponse]=useState("*");
 
@@ -54,7 +54,7 @@ doFetch();
       {
         formData.append(x,profileObj[x]);
       }
-      var response = await axios.post(url, formData, {headers:{ 'Content-Type':'multipart/form-data'}});
+      var response = await axios.post(url, formData);
       // alert(JSON.stringify(response.data));
      setResponse(response.data.msg); 
 }
@@ -68,7 +68,7 @@ async function doUpdatePost()
   {
     formData.append(x,profileObj[x]);
   }
-  var response = await axios.post(url, formData , {headers:{ 'Content-Type':'multipart/form-data'}});
+  var response = await axios.post(url, formData);
   // alert(JSON.stringify(response.data));
  setResponse(response.data.msg);
 }
@@ -76,7 +76,7 @@ async function doUpdatePost()
 //-===============================Fetch Details=----------------------------------------------
 async function doFetch()
   {
-    var url="/api/profile/fetch";
+    var url="api/profile/fetch";
     var response=await axios.post(url,profileObj);
     if(response.data.length==0)
     {
