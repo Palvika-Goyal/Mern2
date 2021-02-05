@@ -40,11 +40,11 @@ function ProfileComponent() {
     setprofileObj({...profileObj,["myfile"]:event.target.files[0]});
     setFileObj(URL.createObjectURL(event.target.files[0]))
   }
-// useEffect(() => {
-// doFetch();
-// }, [])
+useEffect(() => {
+doFetch();
+}, [])
 
-  var [respMsg,setResponse]=useState("*");
+  var [respMsg,setResponse]=useState(" ");
 
   //=--------------------=---------Save with Pic Uploading=------------------------------
   async function doSavePost() {    
@@ -55,9 +55,17 @@ function ProfileComponent() {
         formData.append(x,profileObj[x]);
       }
       var response = await axios.post(url, formData);
-      // alert(JSON.stringify(response.data));
-     setResponse(response.data.msg); 
+      
+      if(response.data.name=="MongoError")
+      
+      setResponse("Profile with this Uid Already Exists.. Click on Update button to save changes");
+    
+      else
+     
+      setResponse("Profile Created"); 
+
 }
+
 
 //=--------------------------------------Update with Pic=------------------------------------
 async function doUpdatePost()
@@ -69,23 +77,22 @@ async function doUpdatePost()
     formData.append(x,profileObj[x]);
   }
   var response = await axios.post(url, formData);
-  // alert(JSON.stringify(response.data));
- setResponse(response.data.msg);
+ setResponse("Profile Updated Successfully....");
 }
 
 //-===============================Fetch Details=----------------------------------------------
 async function doFetch()
   {
-    var url="api/profile/fetch";
+    var url="/api/profile/fetch";
     var response=await axios.post(url,profileObj);
     if(response.data.length==0)
     {
       setResponse("No such uid exists..");
       return
     }
-    setResponse(JSON.stringify(response.data[0]));
+    // setResponse(JSON.stringify(response.data[0]));
     var {uid,namee,mobile,zip,addresss,apic,city,statee}=response.data[0];
-    // alert(uid);
+    
     setprofileObj({"uid":uid,"namee":namee,"mobile":mobile,"zip":zip,"addresss":addresss,"myfile":apic,"city":city,"statee":statee});
   }
 
@@ -153,12 +160,13 @@ async function doFetch()
      
       
       </center></Form.Group></Form.Row>
-    {/* <b>{respMsg}</b> */}
+     
     <Form.Row><Form.Group as={Col}>
-  <Button variant="primary" style={{backgroundColor:"#6C63FF"}} size="lg" block onClick={doSavePost}>
+  <Button variant="primary" id="savee" style={{backgroundColor:"#6C63FF"}} size="lg" block onClick={doSavePost}>
     
 Save  </Button></Form.Group><Form.Group as={Col}> <Button variant="primary" style={{backgroundColor:"#6C63FF"}} size="lg" onClick={doUpdatePost} block>
 Update  </Button></Form.Group></Form.Row>
+<center><h6 >{respMsg}</h6></center>
 </Form>
         </div>
     )

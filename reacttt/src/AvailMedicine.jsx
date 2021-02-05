@@ -48,7 +48,7 @@ function AvailMedicine() {
     setmediObj({...mediObj,["myfile"]:event.target.files[0]});
     setFileObj(URL.createObjectURL(event.target.files[0]))
   }
-  var [respMsg,setResponse]=useState("*");
+  var [respMsg,setResponse]=useState("");
   
 
   //=---------------------------------------Save Post With Pic=--------------------------------------------
@@ -60,8 +60,8 @@ function AvailMedicine() {
         formData.append(x,mediObj[x]);
       }
       var response = await axios.post(url, formData);
-      // alert(JSON.stringify(response.data));
-     setResponse(response.data.msg); 
+      
+     setResponse("Added Medicine Successfully...:)"); 
 }
 
 
@@ -130,7 +130,7 @@ function AvailMedicine() {
 </Form.Row>
   
   
-  <b>{respMsg}</b><Form.Row><Form.Group as={Col}>
+  {respMsg}<Form.Row><Form.Group as={Col}>
   <Button variant="primary" size="lg" block onClick={doSavePost}>
     
 Save  </Button></Form.Group></Form.Row>
