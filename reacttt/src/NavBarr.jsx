@@ -115,15 +115,10 @@ var [respMsgLogin,setResponseLogin]=useState("*");
     return (
         <div style={{fontFamily:"cursive"}}>
             <Navbar bg="white" expand="lg">
-  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+  <Navbar.Brand href="#home">Medix</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="/about">About</Nav.Link>
-
-      
-    </Nav>
+   
     <Form inline>
     <Button variant="primary" style={{backgroundColor:"#6C63FF"}} onClick={handleShow}>SignUp</Button>&nbsp;&nbsp;
 <Button variant="primary" style={{backgroundColor:"#6C63FF"}} onClick={handleShowLogin}>Loginn</Button>
