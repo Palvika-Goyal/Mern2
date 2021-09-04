@@ -118,7 +118,11 @@ var [respMsgLogin,setResponseLogin]=useState("*");
   <Navbar.Brand href="#home">Medix</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
-   
+  <Nav className="me-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="#link">Link</Nav.Link>
+       
+      </Nav>
     <Form inline>
     <Button variant="primary" style={{backgroundColor:"#6C63FF"}} onClick={handleShow}>SignUp</Button>&nbsp;&nbsp;
 <Button variant="primary" style={{backgroundColor:"#6C63FF"}} onClick={handleShowLogin}>Loginn</Button>
